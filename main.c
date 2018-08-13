@@ -1,24 +1,27 @@
 #include "libftasm.h"
 
-void	test_isalnum()
+void	test_isdigit(void)
 {
-	int i = -1;
-	int err = 0;
+	int	i;
+	int	bug;
 
-	while (++i < 128)
+	i = 0;
+	bug = 0;
+	while (i <= 127)
 	{
-		if (ft_isalnum(i) != isalnum(i))
+		if (ft_isdigit(i) != isdigit(i))
 		{
-			printf("\033[31merror on ft_isalnum at char -> %c\033[0m\n", i);
-			err = 1;
+			bug = -1;
+			printf("ft_isdigit is not valid for \'%c\'\n", i);
 		}
+		i++;
 	}
-	if (!err)
-		printf("\033[92m ft_isalnum is ok \033[0m\n");
+	if (!(bug))
+		printf("ft_isdigit is valid\n");
 }
 
 int main(void)
 {
-	test_isalnum();
+	test_isdigit();
 	return (0);
 }
