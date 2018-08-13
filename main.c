@@ -40,10 +40,30 @@ void	test_isprint(void)
 		printf("ft_isprint is valid\n");
 }
 
+void	test_isalpha(void)
+{
+	int	i;
+	int	bug;
+
+	i = 0;
+	bug = 0;
+	while (i <= 127)
+	{
+		if (ft_isalpha(i) != isalpha(i))
+		{
+			bug = -1;
+			printf("ft_isalpha is not valid for \'%c\'\n", i);
+		}
+		i++;
+	}
+	if (!(bug))
+		printf("ft_isalpha is valid\n");
+}
 
 int main(void)
 {
 	test_isdigit();
 	test_isprint();
+	test_isalpha();
 	return (0);
 }
