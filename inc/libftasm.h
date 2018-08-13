@@ -6,9 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-//int ft_isalnum(int c);
-//void ft_bzero(void *s, size_t n);
-int test();
 int	ft_isdigit(int c);
+int ft_isprint(int c);
 
 #endif

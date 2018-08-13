@@ -1,7 +1,7 @@
 NAME = libfts.a
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = srcs/test.s\
+SRCS =	srcs/ft_isprint.s\
 		srcs/ft_isdigit.s
 
 OBJS = $(SRCS:.s=.o)
