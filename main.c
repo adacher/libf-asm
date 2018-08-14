@@ -1,6 +1,6 @@
 #include "libftasm.h"
 
-void	test_isdigit(void)
+static void	test_isdigit(void)
 {
 	int	i;
 	int	bug;
@@ -16,11 +16,11 @@ void	test_isdigit(void)
 		}
 		i++;
 	}
-	if (!(bug))
+	if (!bug)
 		printf("ft_isdigit is valid\n");
 }
 
-void	test_isprint(void)
+static void	test_isprint(void)
 {
 	int	i;
 	int	bug;
@@ -36,11 +36,11 @@ void	test_isprint(void)
 		}
 		i++;
 	}
-	if (!(bug))
+	if (!bug)
 		printf("ft_isprint is valid\n");
 }
 
-void	test_isalpha(void)
+static void	test_isalpha(void)
 {
 	int	i;
 	int	bug;
@@ -56,14 +56,34 @@ void	test_isalpha(void)
 		}
 		i++;
 	}
-	if (!(bug))
+	if (!bug)
 		printf("ft_isalpha is valid\n");
 }
 
+static void	test_isalnum(void)
+{
+	int		i;
+	int		bug;
+
+	i = 0;
+	bug = 0;
+	while (i <= 0x7f)
+	{
+		if (ft_isalnum(i) != isalnum(i))
+		{
+			bug = -1;
+			printf("ft_isalnum is not valid for \'%c\'\n", i);
+		}
+		i++;
+	}
+	if (!bug)
+		printf("ft_isalnum is valid\n");
+}
 int main(void)
 {
 	test_isdigit();
 	test_isprint();
 	test_isalpha();
+	test_isalnum();
 	return (0);
 }
