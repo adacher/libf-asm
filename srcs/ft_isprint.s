@@ -3,13 +3,13 @@ global _ft_isprint
 section .text
 
 _ft_isprint:
-    cmp rdi, 32
-    jl notprint
-    cmp rdi, 126
-    jg notprint
-    mov rax, 1
+    cmp     rdi, 0x20
+    jl      false
+    cmp     rdi, 0x7e
+    jg      false
+    mov     rax, 1
     ret
 
-notprint:
-    mov rax, 0
+false:
+    xor     rax, rax
     ret
