@@ -13,10 +13,10 @@ _ft_isalpha:
 	jbe		true
 	jmp		false
 
-false:
-	xor		rax, rax
-	ret
-
 true:
 	mov		rax, 1
+	ret
+
+false:
+	xor		rax, rax
 	ret
