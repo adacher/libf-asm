@@ -7,7 +7,7 @@ void	test_isdigit(void)
 
 	i = 0;
 	bug = 0;
-	while (i <= 127)
+	while (i <= 0x7f)
 	{
 		if (ft_isdigit(i) != isdigit(i))
 		{
@@ -27,7 +27,7 @@ void	test_isprint(void)
 
 	i = 0;
 	bug = 0;
-	while (i <= 127)
+	while (i <= 0x7f)
 	{
 		if (ft_isprint(i) != isprint(i))
 		{
@@ -47,7 +47,7 @@ void	test_isalpha(void)
 
 	i = 0;
 	bug = 0;
-	while (i <= 127)
+	while (i <= 0x7f)
 	{
 		if (ft_isalpha(i) != isalpha(i))
 		{
