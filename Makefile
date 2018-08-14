@@ -7,7 +7,8 @@ SRCS =	srcs/ft_isprint.s\
 		srcs/ft_isalnum.s\
 		srcs/ft_isascii.s\
 		srcs/ft_toupper.s\
-		srcs/ft_tolower.s
+		srcs/ft_tolower.s\
+		srcs/ft_bzero.s
 
 OBJS = $(SRCS:.s=.o)
 
