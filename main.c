@@ -110,6 +110,46 @@ static void	test_isascii(void)
 		printf("ft_isascii is valid\n");
 }
 
+static void	test_toupper(void)
+{
+	int		i;
+	int		bug;
+
+	i = 0;
+	bug = 0;
+	while (i <= 0x7f)
+	{
+		if (ft_toupper(i) != toupper(i))
+		{
+			bug = -1;
+			printf("ft_toupper is not valid for \'%c\'\n", i);
+		}
+		i++;
+	}
+	if (!bug)
+		printf("ft_toupper is valid\n");
+}
+
+static void	test_tolower(void)
+{
+	int		i;
+	int		bug;
+
+	i = 0;
+	bug = 0;
+	while (i <= 0x7f)
+	{
+		if (ft_tolower(i) != tolower(i))
+		{
+			bug = -1;
+			printf("ft_tolower is not valid for \'%c\'\n", i);
+		}
+		i++;
+	}
+	if (!bug)
+		printf("ft_tolower is valid\n");
+}
+
 int main(void)
 {
 	test_isdigit();
@@ -117,5 +157,7 @@ int main(void)
 	test_isalpha();
 	test_isalnum();
 	test_isascii();
+	test_toupper();
+	test_tolower();
 	return (0);
 }
