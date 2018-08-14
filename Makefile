@@ -4,7 +4,8 @@ FLAGS = -Wall -Wextra -Werror
 SRCS =	srcs/ft_isprint.s\
 		srcs/ft_isdigit.s\
 		srcs/ft_isalpha.s\
-		srcs/ft_isalnum.s
+		srcs/ft_isalnum.s\
+		srcs/ft_isascii.s
 
 OBJS = $(SRCS:.s=.o)
 
