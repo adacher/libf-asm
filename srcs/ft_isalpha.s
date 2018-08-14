@@ -4,13 +4,13 @@ section .text
 
 _ft_isalpha:
 	cmp		rdi, 0x41
-	jl		notvalid
+	jb		notvalid
 	cmp		rdi, 0x5a
-	jle		valid
+	jbe		valid
 	cmp		rdi, 0x61
-	jl		notvalid
+	jb		notvalid
 	cmp		rdi, 0x7a
-	jle		valid
+	jbe		valid
 
 notvalid:
 	mov		rax, 0
