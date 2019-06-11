@@ -1,19 +1,24 @@
 NAME = libfts.a
 FLAGS = -Wall -Wextra -Werror
 
-SRCS =	srcs/ft_isprint.s\
-		srcs/ft_isdigit.s\
+SRCS =	srcs/ft_bzero.s\
+		srcs/ft_strcat.s\
 		srcs/ft_isalpha.s\
+		srcs/ft_isdigit.s\
 		srcs/ft_isalnum.s\
 		srcs/ft_isascii.s\
+		srcs/ft_isprint.s\
 		srcs/ft_toupper.s\
 		srcs/ft_tolower.s\
-		srcs/ft_bzero.s
+		srcs/ft_puts.s\
+		srcs/ft_strlen.s\
+		srcs/ft_memset.s\
+		srcs/ft_memcpy.s\
+		srcs/ft_strdup.s\
+		srcs/ft_cat.s
 
 OBJS = $(SRCS:.s=.o)
-
 INC = -I inc
-PATH = srcs/
 
 all: $(NAME)
 
@@ -25,14 +30,16 @@ $(NAME): $(OBJS)
 	@nasm -f macho64 $< -o $@
 
 test: $(NAME) main.c
-	@gcc -c main.c $(INC)
-	@gcc -o test main.o $(NAME) $(FLAGS)
+	@gcc $(FLAGS) -g -c main.c $(INC)
+	@gcc -o test main.o $(NAME)
 
 clean:
 	@rm -f $(OBJS) main.o
 
 fclean: clean
-	@rm -f $(NAME) test
+	@rm -f $(NAME)
+	@rm -f debug
+	@rm -f test
 
 re: fclean all
 

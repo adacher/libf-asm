@@ -6,9 +6,9 @@ _ft_bzero:
 .loop:
     dec     rsi
     cmp     rsi, 0
-    jl      end
+    jl      quit
     mov     byte [rdi + rsi], 0
     jmp     .loop
 
-end:
+quit:
     ret
