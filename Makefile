@@ -15,7 +15,12 @@ SRCS =	srcs/ft_bzero.s\
 		srcs/ft_memset.s\
 		srcs/ft_memcpy.s\
 		srcs/ft_strdup.s\
-		srcs/ft_cat.s
+		srcs/ft_cat.s\
+		srcs/ft_islower.s\
+		srcs/ft_isspace.s\
+		srcs/ft_putchar.s\
+		srcs/ft_putchar_fd.s\
+		srcs/ft_putstr.s
 
 OBJS = $(SRCS:.s=.o)
 INC = -I inc

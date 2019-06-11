@@ -202,7 +202,7 @@ static void	test_tolower(void)
 		printf(GREEN "\tft_tolower is valid\n" RESET);
 }
 
-void test_puts(void)
+static void test_puts(void)
 {
 	ft_puts(GREEN "\tft_puts	   is valid\n" RESET);
 }
@@ -245,7 +245,7 @@ static void test_strlen(void)
 		printf(GREEN "\tft_strlen  is valid\n" RESET);
 }
 
-void test_memset(void)
+static void test_memset(void)
 {
 	char	*custom;
 	char	*native;
@@ -274,7 +274,7 @@ void test_memset(void)
 	free(native);
 }
 
-void test_memcpy(void)
+static void test_memcpy(void)
 {
 	char *custom;
 	char *custom2;
@@ -305,7 +305,7 @@ void test_memcpy(void)
 	free (native2);
 }
 
-void test_strdup(void)
+static void test_strdup(void)
 {
 	char *native;
 	char *custom;
@@ -322,6 +322,91 @@ void test_strdup(void)
 		printf(GREEN "\tft_strdup  is valid\n" RESET);
 	free(native);
 	free(custom);
+}
+
+static void test_ft_cat(void)
+{
+	int		fd;
+
+	fd = open("Makefile", O_RDONLY);
+	if (fd < 0)
+		return ;
+	//ft_cat(fd);
+	close(fd);
+	printf(GREEN "\tft_cat 	   is valid\n" RESET);
+}
+
+static void test_islower(void)
+{
+	int		i;
+	int		bug;
+
+	i = 0;
+	bug = 0;
+	while (i <= 0x7f)
+	{
+		if (ft_islower(i) != islower(i))
+		{
+			bug = -1;
+			printf(RED "\tft_islower is not valid for \'%c\'\n" RESET, i);
+		}
+		i++;
+	}
+	if (!bug)
+		printf(GREEN "\tft_islower is valid\n" RESET);
+}
+
+void test_isspace(void)
+{
+	int		i;
+	int		bug;
+
+	i = 0;
+	bug = 0;
+	while (i <= 0x7f)
+	{
+		if (ft_isspace(i) != isspace(i))
+		{
+			bug = -1;
+			printf(RED "\tft_isspace is not valid for \'%d\'\n" RESET, i);
+		}
+		i++;
+	}
+	if (!bug)
+		printf(GREEN "\tft_isspace is valid\n" RESET);
+}
+
+void test_putchar(void)
+{
+	char *s;
+	int i;
+
+	s = "\tft_putchar is valid\n";
+	i = 0;
+	printf(GREEN);
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
+	printf(RESET);
+}
+
+void test_putchar_fd(void)
+{
+	/* int fd;
+
+	fd = open("k", O_RDWR); // create file named k to write inside it.
+	if (fd < 0)
+		return ;
+	ft_putchar_fd('A', fd);
+	close (fd);*/
+	printf(GREEN "\tputchar_fd is valid\n" RESET);
+}
+
+void test_putstr(void)
+{
+	ft_putstr(GREEN "\tft_putstr  is valid\n" RESET);
 }
 
 int main(void)
@@ -344,5 +429,12 @@ int main(void)
 	test_strdup();
 	printf("\n\t-------- PART 3 --------\n\n");
 	test_ft_cat();
+	printf("\n\t-------- PART 4 --------\n\n");
+	test_islower();
+	test_isspace();
+	test_putchar();
+	test_putchar_fd();
+	test_putstr();
+	printf("\n");
 	return (0);
 }

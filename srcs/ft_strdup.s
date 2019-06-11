@@ -19,11 +19,11 @@ call _malloc
 pop rdx
 pop rsi
 cmp rax, 0
-jz quit
+jz end
 mov rdi, rax
 call _ft_memcpy
 
-quit:
+end:
 mov rsp, rbp
 pop rbp
 ret

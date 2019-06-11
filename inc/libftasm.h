@@ -5,6 +5,8 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 # define GREEN  "\033[92m"
 # define RED    "\x1b[31m"
@@ -24,5 +26,11 @@ size_t	ft_strlen(const char *s);
 void    *ft_memset(void *b, int c, size_t len);
 void    *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 char    *ft_strdup(const char *s1);
+void    ft_cat(const int fd);
+int     ft_islower(int c);
+int     ft_isspace(int c);
+int     ft_putchar(int c);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr(char const *s);
 
 #endif
