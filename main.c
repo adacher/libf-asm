@@ -215,6 +215,7 @@ static void test_strlen(void)
 
 	i = ft_strlen("thisisateststringforstrlen");
 	n = strlen("thisisateststringforstrlen");
+	printf("%d\n", i);
 	bug = 0;
 	if (i != n)
 	{

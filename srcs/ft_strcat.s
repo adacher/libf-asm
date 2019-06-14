@@ -1,22 +1,22 @@
 global _ft_strcat
+extern _ft_strlen
 
 section .text
 
 _ft_strcat:
-mov rax, rdi
-jmp endofrdi
-
-endofrdi:
-cmp byte [rdi], 0
-je copyrsi
-inc rdi
-jmp endofrdi
-
-copyrsi:
-cmp byte [rsi], 0
-je end
-movsb
-jmp copyrsi
-
-end:
+push rdi
+push rbx
+mov rbx, rdi
+call _ft_strlen
+mov r8, rax
+mov rdi, rsi
+call _ft_strlen
+mov rdi, rbx
+add rdi, r8
+mov rcx ,rax
+add rcx, 1
+cld
+repnz movsb
+pop rbx
+pop rax
 ret
